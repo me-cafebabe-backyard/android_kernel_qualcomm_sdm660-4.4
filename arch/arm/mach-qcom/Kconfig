@@ -98,5 +98,9 @@ config ARCH_MSM8974
 	select CLKSRC_OF
 	select COMMON_CLK
 
+config BUILD_SDM455_DTS_ONLY
+	bool "Build SDM455 DTS Only"
+	depends on ARCH_SDM630
+
 endmenu
 endif

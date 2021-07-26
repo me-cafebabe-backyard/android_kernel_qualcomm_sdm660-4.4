@@ -109,6 +109,10 @@ config ARCH_SDM630
 	  If you do not wish to build a kernel that runs
 	  on this chipset,say 'N' here.
 
+config BUILD_SDM455_DTS_ONLY
+	bool "Build SDM455 DTS Only"
+	depends on ARCH_SDM630
+
 config ARCH_ROCKCHIP
 	bool "Rockchip Platforms"
 	select ARCH_HAS_RESET_CONTROLLER
