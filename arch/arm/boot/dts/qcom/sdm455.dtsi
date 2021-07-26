@@ -57,3 +57,34 @@
 			< 2016000 5163 >;
 	};
 };
+
+/*
+/ {
+	reserved-memory {
+		ramoops@b0000000 {
+			compatible = "ramoops";
+			reg = <0 0xb0000000 0 0x800000>;
+			record-size = <0x200000>;
+			console-size = <0x200000>;
+			pmsg-size = <0x200000>;
+		};
+	};
+};
+*/
+
+/ {
+	reserved-memory {
+		pstore: pstore@b0000000 {
+			no-map;
+			reg = <0 0xb0000000 0 0x800000>;
+		};
+	};
+
+	ramoops {
+		compatible = "ramoops";
+		memory-region = <&pstore>;
+		record-size = <0x0 0x200000>;
+		console-size = <0x0 0x200000>;
+		pmsg-size = <0x0 0x200000>;
+	};
+};
